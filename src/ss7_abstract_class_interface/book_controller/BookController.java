@@ -11,7 +11,7 @@ public class BookController {
     INaturalService naturalService = new NaturalService();
     ISocialService socialService = new SocialService();
 
-    public void displayMenu() {
+    public void displayMenuBook() {
         do {
             System.out.println("BOOK MANAGEMENT" +
                     "\n1.Display Natural Book" +

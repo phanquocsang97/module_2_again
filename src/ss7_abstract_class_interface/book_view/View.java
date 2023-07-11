@@ -9,6 +9,6 @@ public class View {
 
     public static void main(String[] args) {
         BookController bookController = new BookController();
-        bookController.displayMenu();
+        bookController.displayMenuBook();
     }
 }

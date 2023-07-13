@@ -7,12 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SocialRepository implements ISocialRepository {
-    //    static List<SocialBook> socialBookList = new ArrayList<>();
+//    static List<SocialBook> socialBookList = new ArrayList<>();
+//
 //    static {
-//        socialBookList.add(new SocialBook(1,"conan",3,"abc"));
-//        socialBookList.add(new SocialBook(2,"dragon ball",3,"zxc"));
-//        socialBookList.add(new SocialBook(3,"yaiba",3,"asd"));
+//        socialBookList.add(new SocialBook(1, "conan", 3, "abc"));
+//        socialBookList.add(new SocialBook(2, "dragon ball", 3, "zxc"));
+//        socialBookList.add(new SocialBook(3, "yaiba", 3, "asd"));
 //    }
+
     @Override
     public List<SocialBook> displaySocialBook() {
         List<String> stringList = ReadAndWrite.readFileBook(ReadAndWrite.PATH_FILE_BOOK);

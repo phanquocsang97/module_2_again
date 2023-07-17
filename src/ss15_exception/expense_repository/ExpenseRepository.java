@@ -1,12 +1,10 @@
-package ss14_sort.expense_repository;
+package ss15_exception.expense_repository;
 
 import ss13_search.expense_model.Expense;
-import ss13_search.expense_repository.IExpenseRepository;
-import ss13_search.expense_utils.ReadAndWrite;
+import ss15_exception.expense_utils.ReadAndWrite;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class ExpenseRepository implements IExpenseRepository {
     @Override
@@ -39,7 +37,7 @@ public class ExpenseRepository implements IExpenseRepository {
     public void editExpense(int index, Expense expense) {
         List<String> stringList = ReadAndWrite.readFileBook(ReadAndWrite.PATH_FILE_EXPENSE);
         stringList.set(index, expense.convertToStringExpense());
-        ReadAndWrite.writeFileBook(ReadAndWrite.PATH_FILE_EXPENSE,stringList,false);
+        ReadAndWrite.writeFileBook(ReadAndWrite.PATH_FILE_EXPENSE, stringList, false);
     }
 
     @Override
@@ -60,9 +58,9 @@ public class ExpenseRepository implements IExpenseRepository {
     @Override
     public List<Expense> searchNameExpense(String name) {
         List<Expense> expenseList = new ArrayList<>();
-        for (Expense s : displayExpense()) {
-            if (s.getNameExpense().contains(name)) {
-                expenseList.add(s);
+        for (Expense e : displayExpense()) {
+            if (e.getNameExpense().contains(name)) {
+                expenseList.add(e);
             }
         }
         return expenseList;

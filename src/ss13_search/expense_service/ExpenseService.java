@@ -5,6 +5,8 @@ import ss13_search.expense_model.SortByPrice;
 import ss13_search.expense_repository.ExpenseRepository;
 import ss13_search.expense_repository.IExpenseRepository;
 import ss13_search.expense_utils.ReadAndWrite;
+import ss14_sort.expense_utils.IdNotFoundException;
+import ss14_sort.expense_utils.UniqueIdException;
 
 import java.util.Collections;
 import java.util.List;
@@ -23,43 +25,55 @@ public class ExpenseService implements IExpenseService {
 
     @Override
     public void addNewExpense() {
-        System.out.println("Enter id new expense");
-        int newId = ReadAndWrite.inputInt();
-        int index = expenseRepository.searchIdExpense(newId);
-        if (index == -1) {
-            System.out.println("Enter name new expense");
-            String newName = scanner.nextLine();
-            System.out.println("Enter day new expense");
-            String newDay = scanner.nextLine();
-            System.out.println("Enter price new expense");
-            int newPrice = ReadAndWrite.inputInt();
-            System.out.println("Enter detail new expense");
-            String newDetail = scanner.nextLine();
-            Expense expense = new Expense(newId, newName, newDay, newPrice, newDetail);
-            expenseRepository.addNewExpense(expense);
-        }else {
-            System.out.println("Id already exist!!");
-        }
+        do {
+            try {
+                System.out.println("Enter id new expense");
+                int newId = ReadAndWrite.inputInt();
+                int index = expenseRepository.searchIdExpense(newId);
+                if (index == -1) {
+                    System.out.println("Enter name new expense");
+                    String newName = scanner.nextLine();
+                    System.out.println("Enter day new expense");
+                    String newDay = scanner.nextLine();
+                    System.out.println("Enter price new expense");
+                    int newPrice = ReadAndWrite.inputInt();
+                    System.out.println("Enter detail new expense");
+                    String newDetail = scanner.nextLine();
+                    Expense expense = new Expense(newId, newName, newDay, newPrice, newDetail);
+                    expenseRepository.addNewExpense(expense);
+                } else {
+                    displayExpense();
+                    throw new UniqueIdException();
+                }
+            } catch (UniqueIdException e) {
+                System.out.println("Id already exist!!");
+            }
+        } while (true);
     }
 
     @Override
     public void removeExpense() {
-        System.out.println("Enter id you want to remove");
-        int idRemove = ReadAndWrite.inputInt();
-        int index = expenseRepository.searchIdExpense(idRemove);
-        if (index == -1) {
-            System.out.println("Id doesnt exist!!");
-        } else {
-            System.out.println(expenseRepository.getExpense(index));
-            System.out.println("Enter yes to remove!!");
-            String choice = scanner.nextLine().toLowerCase().trim();
-            if (choice.equals("yes")) {
-                expenseRepository.removeExpense(index);
-            } else {
-                System.out.println("Cancel!!");
+        do {
+            try {
+                System.out.println("Enter id you want to remove");
+                int idRemove = ReadAndWrite.inputInt();
+                int index = expenseRepository.searchIdExpense(idRemove);
+                if (index == -1) {
+                    throw new IdNotFoundException();
+                } else {
+                    System.out.println(expenseRepository.getExpense(index));
+                    System.out.println("Enter yes to remove!!");
+                    String choice = scanner.nextLine().toLowerCase().trim();
+                    if (choice.equals("yes")) {
+                        expenseRepository.removeExpense(index);
+                    } else {
+                        System.out.println("Cancel!!");
+                    }
+                }
+            } catch (IdNotFoundException e) {
+                System.out.println("Id doesnt exist!!");
             }
-        }
-
+        } while (true);
     }
 
     @Override
@@ -119,10 +133,10 @@ public class ExpenseService implements IExpenseService {
             } while (flag);
             System.out.println("Enter yes to save new info");
             String select = scanner.nextLine().toLowerCase().trim();
-            if (select.equals("yes")){
-                expenseRepository.editExpense(index,newExpense);
+            if (select.equals("yes")) {
+                expenseRepository.editExpense(index, newExpense);
                 displayExpense();
-            }else {
+            } else {
                 System.out.println("Cancel!!");
             }
         }
@@ -133,9 +147,9 @@ public class ExpenseService implements IExpenseService {
         System.out.println("Enter id you want to search");
         int idSearch = ReadAndWrite.inputInt();
         int index = expenseRepository.searchIdExpense(idSearch);
-        if (index == -1){
+        if (index == -1) {
             System.out.println("Id doesnt exist!!");
-        }else {
+        } else {
             Expense expense = expenseRepository.getExpense(index);
             System.out.println(expense);
         }
@@ -145,11 +159,11 @@ public class ExpenseService implements IExpenseService {
     public void searchNameExpense() {
         System.out.println("Enter name you want to search");
         String nameSearch = scanner.nextLine();
-        List<Expense> expenseList =expenseRepository.searchNameExpense(nameSearch);
-        if (expenseList.size()==0){
+        List<Expense> expenseList = expenseRepository.searchNameExpense(nameSearch);
+        if (expenseList.size() == 0) {
             System.out.println("Name doesnt exist!!");
-        }else {
-            for (Expense e: expenseList) {
+        } else {
+            for (Expense e : expenseList) {
                 System.out.println(e);
             }
         }
@@ -160,7 +174,7 @@ public class ExpenseService implements IExpenseService {
         System.out.println("Sort list by name");
         List<Expense> expenseList = expenseRepository.displayExpense();
         Collections.sort(expenseList);
-        for (Expense e:expenseList) {
+        for (Expense e : expenseList) {
             System.out.println(e);
         }
     }
@@ -169,7 +183,7 @@ public class ExpenseService implements IExpenseService {
     public void sortByPrice() {
         System.out.println("Sort list by price");
         List<Expense> expenseList = expenseRepository.displayExpense();
-        Collections.sort(expenseList,new SortByPrice());
+        Collections.sort(expenseList, new SortByPrice());
         for (Expense e : expenseList) {
             System.out.println(e);
         }

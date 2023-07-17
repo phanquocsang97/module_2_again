@@ -1,4 +1,4 @@
-package ss13_search.expense_model;
+package ss14_sort.expense_model;
 
 public class Expense implements Comparable<Expense> {
     private int idExpense;

@@ -1,9 +1,10 @@
-package ss13_search.expense_service;
+package ss14_sort.expense_service;
 
 import ss13_search.expense_model.Expense;
 import ss13_search.expense_model.SortByPrice;
 import ss13_search.expense_repository.ExpenseRepository;
 import ss13_search.expense_repository.IExpenseRepository;
+import ss13_search.expense_service.IExpenseService;
 import ss13_search.expense_utils.ReadAndWrite;
 
 import java.util.Collections;

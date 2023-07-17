@@ -1,4 +1,4 @@
-package ss13_search.expense_service;
+package ss14_sort.expense_service;
 
 public interface IExpenseService {
     void displayExpense();

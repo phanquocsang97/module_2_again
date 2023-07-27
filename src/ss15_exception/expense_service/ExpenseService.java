@@ -25,7 +25,6 @@ public class ExpenseService implements IExpenseService {
 
     @Override
     public void addNewExpense() {
-
         try {
             System.out.println("Enter new id");
             int newId = ReadAndWrite.inputInt();
@@ -47,7 +46,6 @@ public class ExpenseService implements IExpenseService {
         } catch (UniqueIdException e) {
             System.out.println("Id already exist!!");
         }
-
     }
 
     @Override
@@ -70,7 +68,7 @@ public class ExpenseService implements IExpenseService {
                 }
             }
         } catch (IdNotFoundException e) {
-            System.out.println("Id doesnt exist!!5");
+            System.out.println("Id doesnt exist!!");
         }
     }
 

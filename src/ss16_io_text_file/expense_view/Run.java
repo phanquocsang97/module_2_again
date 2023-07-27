@@ -1,9 +1,8 @@
-package ss15_exception.expense_view;
+package ss16_io_text_file.expense_view;
 
-import ss15_exception.expense_controller.ExpenseController;
-import ss15_exception.expense_utils.ReadAndWrite;
+import ss16_io_text_file.expense_controller.ExpenseController;
+import ss16_io_text_file.expense_model.Expense;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Run {
@@ -12,6 +11,5 @@ public class Run {
     public static void main(String[] args) {
         ExpenseController expenseController = new ExpenseController();
         expenseController.displayMenu();
-
     }
 }

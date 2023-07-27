@@ -12,7 +12,7 @@ import java.util.List;
 import static ss16_io_text_file.expense_view.Run.scanner;
 
 public class ExpenseService implements IExpenseService {
-    IExpenseRepository expenseRepository = new ExpenseRepository();
+    private final IExpenseRepository expenseRepository = new ExpenseRepository();
 
     @Override
     public void display() {

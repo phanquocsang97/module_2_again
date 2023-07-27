@@ -5,7 +5,7 @@ import ss17_binary_file.expense_service.IExpenseService;
 import ss17_binary_file.expense_util.ReadAndWriteBinary;
 
 public class ExpenseController {
-    IExpenseService expenseService = new ExpenseService();
+    private final IExpenseService expenseService = new ExpenseService();
     public void displayMenu(){
         do {
             System.out.println("EXPENSE MANAGEMENT" +

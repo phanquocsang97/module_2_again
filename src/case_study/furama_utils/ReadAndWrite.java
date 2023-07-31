@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static case_study.furama_view.Run.scanner;
+import static case_study.view.Run.scanner;
 
 public class ReadAndWrite {
     public static void writeFileBook(String pathFile, List<String> text, boolean append) {

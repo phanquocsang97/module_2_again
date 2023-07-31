@@ -1,7 +1,5 @@
 package case_study.furama_controller;
 
-import case_study.furama_service.class_service.BookingService;
-import case_study.furama_service.interface_service.IBookingService;
 import case_study.furama_utils.ReadAndWrite;
 
 public class BookingManagement {

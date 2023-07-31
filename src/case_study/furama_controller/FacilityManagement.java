@@ -1,7 +1,5 @@
 package case_study.furama_controller;
 
-import case_study.furama_service.class_service.FacilityService;
-import case_study.furama_service.interface_service.IFacilityService;
 import case_study.furama_utils.ReadAndWrite;
 
 public class FacilityManagement {

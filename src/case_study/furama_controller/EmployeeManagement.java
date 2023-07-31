@@ -1,7 +1,7 @@
 package case_study.furama_controller;
 
-import case_study.furama_service.class_service.EmployeeService;
-import case_study.furama_service.interface_service.IEmployeeService;
+import case_study.service.impl.EmployeeService;
+import case_study.service.IEmployeeService;
 import case_study.furama_utils.ReadAndWrite;
 
 public class EmployeeManagement {
@@ -13,10 +13,10 @@ public class EmployeeManagement {
                     "\n1.Display list employees" +
                     "\n2.Add new employee" +
                     "\n3.Edit employee" +
-                    "\n4.Delete employee" +
+                    "\n4.Remove employee" +
                     "\n5.Search by name employee" +
                     "\n6.Return main menu" +
-                    "Select your option"
+                    "\nSelect your option"
                     );
             int select = ReadAndWrite.inputInput();
             switch (select){
@@ -33,7 +33,7 @@ public class EmployeeManagement {
                     employeeService.editEmployee();
                     break;
                 case 4:
-                    System.out.println("Delete employee");
+                    System.out.println("Remove employee");
                     employeeService.removeEmployee();
                     break;
                 case 5:

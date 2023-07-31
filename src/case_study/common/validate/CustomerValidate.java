@@ -1,6 +1,6 @@
-package case_study.furama_common.validate;
+package case_study.common.validate;
 
-import case_study.furama_common.exception.CustomerException;
+import case_study.common.exception.CustomerException;
 
 public class CustomerValidate {
     public static boolean checkIdCustomer(String id) throws CustomerException {

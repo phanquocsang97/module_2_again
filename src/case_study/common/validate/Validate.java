@@ -1,4 +1,4 @@
-package case_study.furama_common.validate;
+package case_study.common.validate;
 
 import static case_study.view.Run.scanner;
 

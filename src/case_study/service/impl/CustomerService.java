@@ -1,15 +1,15 @@
 package case_study.service.impl;
 
-import case_study.furama_common.exception.CustomerException;
-import case_study.furama_common.exception.IdNotFoundException;
-import case_study.furama_common.exception.UniqueIdException;
-import case_study.furama_common.validate.CustomerValidate;
-import case_study.furama_common.validate.Validate;
+import case_study.common.exception.CustomerException;
+import case_study.common.exception.IdNotFoundException;
+import case_study.common.exception.UniqueIdException;
+import case_study.common.validate.CustomerValidate;
+import case_study.common.validate.Validate;
 import case_study.model.person.Customer;
 import case_study.repository.impl.CustomerRepository;
 import case_study.repository.ICustomerRepository;
 import case_study.service.ICustomerService;
-import case_study.furama_utils.ReadAndWrite;
+import case_study.utils.ReadAndWrite;
 
 import java.util.List;
 

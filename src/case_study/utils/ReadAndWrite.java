@@ -1,4 +1,4 @@
-package case_study.furama_utils;
+package case_study.utils;
 
 import java.io.*;
 import java.util.ArrayList;

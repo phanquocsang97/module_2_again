@@ -1,6 +1,6 @@
-package case_study.furama_controller;
+package case_study.controller;
 
-import case_study.furama_utils.ReadAndWrite;
+import case_study.utils.ReadAndWrite;
 
 public class BookingManagement {
     public void selectBooking(){

@@ -2,7 +2,7 @@ package case_study.repository.impl;
 
 import case_study.model.person.Customer;
 import case_study.repository.ICustomerRepository;
-import case_study.furama_utils.ReadAndWrite;
+import case_study.utils.ReadAndWrite;
 
 import java.util.ArrayList;
 import java.util.List;

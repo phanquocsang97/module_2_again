@@ -1,4 +1,4 @@
-package case_study.furama_common.exception;
+package case_study.common.exception;
 
 public class UniqueIdException extends Exception{
 }

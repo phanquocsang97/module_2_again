@@ -1,8 +1,8 @@
-package case_study.furama_controller;
+package case_study.controller;
 
 import case_study.service.impl.CustomerService;
 import case_study.service.ICustomerService;
-import case_study.furama_utils.ReadAndWrite;
+import case_study.utils.ReadAndWrite;
 
 public class CustomerManagement {
     private final ICustomerService customerService = new CustomerService();

@@ -1,6 +1,6 @@
 package case_study.view;
 
-import case_study.furama_controller.FuramaController;
+import case_study.controller.FuramaController;
 
 import java.util.Scanner;
 

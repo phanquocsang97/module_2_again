@@ -1,8 +1,8 @@
-package case_study.furama_controller;
+package case_study.controller;
 
 import case_study.service.impl.EmployeeService;
 import case_study.service.IEmployeeService;
-import case_study.furama_utils.ReadAndWrite;
+import case_study.utils.ReadAndWrite;
 
 public class EmployeeManagement {
     private final IEmployeeService employeeService = new EmployeeService();

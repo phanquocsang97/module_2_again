@@ -54,7 +54,7 @@ public class FacilityService implements IFacilityService {
                     break;
                 case 4:
                     System.out.println("Return main menu");
-                    System.exit(0);
+                    return;
                 default:
                     System.out.println("Input Wrong!!");
                     break;

@@ -10,7 +10,7 @@ public class PromotionManagement {
                     "\n1.Display list customers use service" +
                     "\n2.Display list customers get voucher" +
                     "\3.Return main menu" +
-                    "Select your option"
+                    "\nSelect your option"
                     );
             int select = ReadAndWrite.inputInput();
             switch (select){

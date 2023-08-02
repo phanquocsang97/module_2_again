@@ -15,7 +15,7 @@ public class FacilityManagement {
                     "\n3.Display list facility maintenance" +
                     "\n4.Delete facility" +
                     "\n5.Return main menu" +
-                    "Select your option"
+                    "\nSelect your option"
                     );
             int select = ReadAndWrite.inputInput();
             switch (select){

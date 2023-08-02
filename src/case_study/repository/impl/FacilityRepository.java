@@ -34,11 +34,11 @@ public class FacilityRepository implements IFacilityRepository {
 //                    break;
 //            }
             if (info.length == 9) {
-                facilityMap.put(new House(info[0], info[1], Float.parseFloat(info[2]), Double.parseDouble(info[3]), Integer.parseInt(info[4]), info[5], info[6], Integer.parseInt(info[7])), 0);
+                facilityMap.put(new House(info[0], info[1], Float.parseFloat(info[2]), Double.parseDouble(info[3]), Integer.parseInt(info[4]), info[5], info[6], Integer.parseInt(info[7])), Integer.parseInt(info[8]));
             } else if (info.length > 9) {
-                facilityMap.put(new Villa(info[0], info[1], Float.parseFloat(info[2]), Double.parseDouble(info[3]), Integer.parseInt(info[4]), info[5], info[6], Float.parseFloat(info[7]), Integer.parseInt(info[8])), 0);
+                facilityMap.put(new Villa(info[0], info[1], Float.parseFloat(info[2]), Double.parseDouble(info[3]), Integer.parseInt(info[4]), info[5], info[6], Float.parseFloat(info[7]), Integer.parseInt(info[8])), Integer.parseInt(info[9]));
             } else if (info.length < 9) {
-                facilityMap.put(new Room(info[0], info[1], Float.parseFloat(info[2]), Double.parseDouble(info[3]), Integer.parseInt(info[4]), info[5], info[6]), 0);
+                facilityMap.put(new Room(info[0], info[1], Float.parseFloat(info[2]), Double.parseDouble(info[3]), Integer.parseInt(info[4]), info[5], info[6]), Integer.parseInt(info[7]));
             }
         }
         return facilityMap;
@@ -48,13 +48,13 @@ public class FacilityRepository implements IFacilityRepository {
     public void addNewFacility(Facility facility) {
         List<String> stringList = ReadAndWrite.readFileBook(FACILITY_PATH_FILE);
         if (facility instanceof Villa) {
-            stringList.add(((Villa) facility).convertToStringVilla());
+            stringList.add(((Villa) facility).convertToStringVilla() + "," + 0);
         } else if (facility instanceof House) {
-            stringList.add(((House) facility).convertToStringHouse());
+            stringList.add(((House) facility).convertToStringHouse() + "," + 0);
         } else if (facility instanceof Room) {
-            stringList.add(((Room) facility).convertToStringRoom());
+            stringList.add(((Room) facility).convertToStringRoom() + "," + 0);
         }
-        ReadAndWrite.writeFileBook(FACILITY_PATH_FILE,stringList,false);
+        ReadAndWrite.writeFileBook(FACILITY_PATH_FILE, stringList, false);
     }
 
     @Override

@@ -2,12 +2,12 @@ package case_study.model.facility;
 
 public class House extends Facility{
     private String roomStandard;
-    private String floorHouse;
+    private int floorHouse;
 
     public House() {
     }
 
-    public House(String idService, String nameService, String areaService, String costService, String peopleService, String kindOfRentService, String roomStandard, String floorHouse) {
+    public House(String idService, String nameService, float areaService, double costService, int peopleService, String kindOfRentService, String roomStandard, int floorHouse) {
         super(idService, nameService, areaService, costService, peopleService, kindOfRentService);
         this.roomStandard = roomStandard;
         this.floorHouse = floorHouse;
@@ -21,24 +21,28 @@ public class House extends Facility{
         this.roomStandard = roomStandard;
     }
 
-    public String getFloorHouse() {
+    public int getFloorHouse() {
         return floorHouse;
     }
 
-    public void setFloorHouse(String floorHouse) {
+    public void setFloorHouse(int floorHouse) {
         this.floorHouse = floorHouse;
+    }
+    public String convertToStringHouse(){
+        return idService + "," + nameService + "," + areaService + "," + costService + "," + peopleService + "," +
+                kindOfRentService + "," + roomStandard + "," + floorHouse;
     }
 
     @Override
     public String toString() {
         return "House{" +
-                ", idService='" + idService + '\'' +
-                ", nameService='" + nameService + '\'' +
-                ", areaService='" + areaService + '\'' +
-                ", costService='" + costService + '\'' +
-                ", peopleService='" + peopleService + '\'' +
-                ", kindOfRentService='" + kindOfRentService + '\'' +
-                "roomStandard='" + roomStandard + '\'' +
+                ", idHouse='" + idService + '\'' +
+                ", nameHouse='" + nameService + '\'' +
+                ", areaHouse='" + areaService + '\'' +
+                ", costHouse='" + costService + '\'' +
+                ", peopleHouse='" + peopleService + '\'' +
+                ", kindOfRentHouse='" + kindOfRentService + '\'' +
+                ", roomStandardHouse='" + roomStandard + '\'' +
                 ", floorHouse='" + floorHouse + '\'' +
                 '}';
     }

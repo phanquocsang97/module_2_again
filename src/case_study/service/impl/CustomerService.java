@@ -49,15 +49,56 @@ public class CustomerService implements ICustomerService {
             int index = customerRepository.searchIdCustomer(id);
             if (index == -1) {
                 System.out.println("Enter name of customer:");
-                String name = Validate.validateNameAndType();
+                String name = "";
+                do {
+                    try {
+                        name = scanner.nextLine();
+                        if (CustomerValidate.checkNameCustomer(name)) {
+                            break;
+                        }
+                    } catch (CustomerException e) {
+                        System.out.println("Input Wrong!!");
+                    }
+                } while (true);
+
                 System.out.println("Enter day of birth customer");
-                String date = Validate.validateDate();
+                String date = "";
+                do {
+                    try {
+                        date = scanner.nextLine();
+                        if (CustomerValidate.checkDateCustomer(date)) {
+                            break;
+                        }
+                    } catch (CustomerException e) {
+                        System.out.println("Input Wrong!!");
+                    }
+                } while (true);
                 System.out.println("Enter gender of customer");
                 String gender = Validate.validateGender();
                 System.out.println("Enter identify of customer");
-                String identify = Validate.validateIdentifyNumber();
+                String identify = "";
+                do {
+                    try {
+                        identify = scanner.nextLine();
+                        if (CustomerValidate.checkIdentifyCustomer(identify)) {
+                            break;
+                        }
+                    } catch (CustomerException e) {
+                        System.out.println("Input Wrong!!");
+                    }
+                } while (true);
                 System.out.println("Enter phone number of customer");
-                String phoneNumber = Validate.validatePhoneNumber();
+                String phoneNumber = "";
+                do {
+                    try {
+                        phoneNumber = scanner.nextLine();
+                        if (CustomerValidate.checkPhoneCustomer(phoneNumber)) {
+                            break;
+                        }
+                    } catch (CustomerException e) {
+                        System.out.println("Input Wrong!!");
+                    }
+                } while (true);
                 System.out.println("Enter email of customer");
                 String email = Validate.validateEmail();
                 System.out.println("Enter level of customer");
@@ -79,7 +120,17 @@ public class CustomerService implements ICustomerService {
         boolean flag = true;
         try {
             System.out.println("Enter id you want to edit");
-            String id = Validate.validateIdCustomer();
+            String id = "";
+            do {
+                try {
+                    id = scanner.nextLine();
+                    if (CustomerValidate.checkIdCustomer(id)) {
+                        break;
+                    }
+                } catch (CustomerException e) {
+                    System.out.println("Input Wrong!!");
+                }
+            } while (true);
             int index = customerRepository.searchIdCustomer(id);
             if (index == -1) {
                 throw new IdNotFoundException("Id doesnt exist!!!");
@@ -100,12 +151,32 @@ public class CustomerService implements ICustomerService {
                     switch (select) {
                         case 1:
                             System.out.println("New name");
-                            String name = Validate.validateNameAndType();
+                            String name = "";
+                            do {
+                                try {
+                                    name = scanner.nextLine();
+                                    if (CustomerValidate.checkIdCustomer(name)) {
+                                        break;
+                                    }
+                                } catch (CustomerException e) {
+                                    System.out.println("Input Wrong!!");
+                                }
+                            } while (true);
                             customer.setName(name);
                             break;
                         case 2:
                             System.out.println("New date");
-                            String date = Validate.validateDate();
+                            String date = "";
+                            do {
+                                try {
+                                    date = scanner.nextLine();
+                                    if (CustomerValidate.checkIdCustomer(date)) {
+                                        break;
+                                    }
+                                } catch (CustomerException e) {
+                                    System.out.println("Input Wrong!!");
+                                }
+                            } while (true);
                             customer.setDate(date);
                             break;
                         case 3:
@@ -115,12 +186,32 @@ public class CustomerService implements ICustomerService {
                             break;
                         case 4:
                             System.out.println("New identify");
-                            String identify = Validate.validateIdentifyNumber();
+                            String identify = "";
+                            do {
+                                try {
+                                    identify = scanner.nextLine();
+                                    if (CustomerValidate.checkIdCustomer(identify)) {
+                                        break;
+                                    }
+                                } catch (CustomerException e) {
+                                    System.out.println("Input Wrong!!");
+                                }
+                            } while (true);
                             customer.setIdentifyNumber(identify);
                             break;
                         case 5:
                             System.out.println("New phone number");
-                            String phoneNumber = Validate.validatePhoneNumber();
+                            String phoneNumber = "";
+                            do {
+                                try {
+                                    phoneNumber = scanner.nextLine();
+                                    if (CustomerValidate.checkIdCustomer(phoneNumber)) {
+                                        break;
+                                    }
+                                } catch (CustomerException e) {
+                                    System.out.println("Input Wrong!!");
+                                }
+                            } while (true);
                             customer.setPhoneNumber(phoneNumber);
                             break;
                         case 6:
@@ -165,7 +256,17 @@ public class CustomerService implements ICustomerService {
     public void removeCustomer() {
         try {
             System.out.println("Enter id you want to remove");
-            String id = Validate.validateIdCustomer();
+            String id = "";
+            do {
+                try {
+                    id = scanner.nextLine();
+                    if (CustomerValidate.checkIdCustomer(id)) {
+                        break;
+                    }
+                } catch (CustomerException e) {
+                    System.out.println("Input Wrong!!");
+                }
+            } while (true);
             int index = customerRepository.searchIdCustomer(id);
             if (index == -1) {
                 throw new IdNotFoundException("Id doesnt exist!!!");

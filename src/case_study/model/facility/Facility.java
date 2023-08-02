@@ -3,15 +3,15 @@ package case_study.model.facility;
 public abstract class Facility {
     protected String idService;
     protected String nameService;
-    protected String areaService;
-    protected String costService;
-    protected String peopleService;
+    protected float areaService;
+    protected double costService;
+    protected int peopleService;
     protected String kindOfRentService;
 
     public Facility() {
     }
 
-    public Facility(String idService, String nameService, String areaService, String costService, String peopleService, String kindOfRentService) {
+    public Facility(String idService, String nameService, float areaService, double costService, int peopleService, String kindOfRentService) {
         this.idService = idService;
         this.nameService = nameService;
         this.areaService = areaService;
@@ -36,27 +36,27 @@ public abstract class Facility {
         this.nameService = nameService;
     }
 
-    public String getAreaService() {
+    public float getAreaService() {
         return areaService;
     }
 
-    public void setAreaService(String areaService) {
+    public void setAreaService(float areaService) {
         this.areaService = areaService;
     }
 
-    public String getCostService() {
+    public double getCostService() {
         return costService;
     }
 
-    public void setCostService(String costService) {
+    public void setCostService(double costService) {
         this.costService = costService;
     }
 
-    public String getPeopleService() {
+    public int getPeopleService() {
         return peopleService;
     }
 
-    public void setPeopleService(String peopleService) {
+    public void setPeopleService(int peopleService) {
         this.peopleService = peopleService;
     }
 
@@ -67,7 +67,8 @@ public abstract class Facility {
     public void setKindOfRentService(String kindOfRentService) {
         this.kindOfRentService = kindOfRentService;
     }
-    public String covertToStringFacility(){
+
+    public String covertToStringFacility() {
         return idService + "," + nameService + "," + areaService + "," + costService + "," +
                 peopleService + "," + kindOfRentService;
     }

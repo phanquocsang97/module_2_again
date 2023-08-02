@@ -1,7 +1,11 @@
 package case_study.service.impl;
 
+import case_study.common.exception.CustomerException;
+import case_study.common.exception.EmployeeException;
 import case_study.common.exception.IdNotFoundException;
 import case_study.common.exception.UniqueIdException;
+import case_study.common.validate.CustomerValidate;
+import case_study.common.validate.EmployeeValidate;
 import case_study.common.validate.Validate;
 import case_study.model.person.Employee;
 import case_study.repository.impl.EmployeeRepository;
@@ -25,21 +29,71 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public void addNewEmployee() {
+        System.out.println("Enter new id employee");
+        String id = "";
+        do {
+            try {
+                id = scanner.nextLine();
+                if (EmployeeValidate.checkIdEmployee(id)) {
+                    break;
+                }
+            } catch (EmployeeException e) {
+                System.out.println("Input Wrong!!!");
+            }
+        } while (true);
         try {
-            System.out.println("Enter new id employee");
-            String id = Validate.validateIdEmployee();
             int index = employeeRepository.searchByIdEmployee(id);
             if (index == -1) {
                 System.out.println("Enter name employee");
-                String name = Validate.validateNameAndType();
+                String name = "";
+                do {
+                    try {
+                        name = scanner.nextLine();
+                        if (EmployeeValidate.checkNameEmployee(name)) {
+                            break;
+                        }
+                    } catch (EmployeeException e) {
+                        System.out.println("Input Wrong!!!");
+                    }
+                } while (true);
                 System.out.println("Enter day of birth employee");
-                String date = Validate.validateDate();
+                String date = "";
+                do {
+                    try {
+                        date = scanner.nextLine();
+                        if (EmployeeValidate.checkDateEmployee(date)) {
+                            break;
+                        }
+                    } catch (EmployeeException e) {
+                        System.out.println("Input Wrong!!!");
+                    }
+                } while (true);
                 System.out.println("Enter gender of employee");
                 String gender = Validate.validateGender();
                 System.out.println("Enter identify of employee");
-                String identify = Validate.validateIdentifyNumber();
+                String identify = "";
+                do {
+                    try {
+                        identify = scanner.nextLine();
+                        if (EmployeeValidate.checkIdentifyEmployee(identify)) {
+                            break;
+                        }
+                    } catch (EmployeeException e) {
+                        System.out.println("Input Wrong!!!");
+                    }
+                } while (true);
                 System.out.println("Enter phone number of employee");
-                String phoneNumber = Validate.validatePhoneNumber();
+                String phoneNumber = "";
+                do {
+                    try {
+                        phoneNumber = scanner.nextLine();
+                        if (EmployeeValidate.checkPhoneEmployee(phoneNumber)) {
+                            break;
+                        }
+                    } catch (EmployeeException e) {
+                        System.out.println("Input Wrong!!!");
+                    }
+                } while (true);
                 System.out.println("Enter email of employee");
                 String email = Validate.validateEmail();
                 System.out.println("Enter level of employee");
@@ -47,7 +101,17 @@ public class EmployeeService implements IEmployeeService {
                 System.out.println("Enter position of employee");
                 String position = Validate.validatePosition();
                 System.out.println("Enter salary of employee");
-                int salary = Validate.validateSalary();
+                int salary = 0;
+                do {
+                    try {
+                        salary = Integer.parseInt(scanner.nextLine());
+                        if (EmployeeValidate.checkSalaryEmployee(salary)) {
+                            break;
+                        }
+                    } catch (EmployeeException e) {
+                        System.out.println("Input Wrong!!!");
+                    }
+                } while (true);
                 Employee employee = new Employee(id, name, date, gender, identify, phoneNumber, email, level, position, salary);
                 employeeRepository.addNewEmployee(employee);
             } else {
@@ -62,7 +126,17 @@ public class EmployeeService implements IEmployeeService {
     public void removeEmployee() {
         try {
             System.out.println("Enter id you want to remove");
-            String id = Validate.validateIdEmployee();
+            String id ="";
+            do {
+                try {
+                    id = scanner.nextLine();
+                    if (EmployeeValidate.checkIdEmployee(id)) {
+                        break;
+                    }
+                } catch (EmployeeException e) {
+                    System.out.println("Input Wrong!!!");
+                }
+            } while (true);
             int index = employeeRepository.searchByIdEmployee(id);
             if (index == -1) {
                 throw new IdNotFoundException("Id doesnt exist");
@@ -87,7 +161,17 @@ public class EmployeeService implements IEmployeeService {
         boolean flag = true;
         try {
             System.out.println("Enter id you want to edit");
-            String id = Validate.validateIdEmployee();
+            String id = "";
+            do {
+                try {
+                    id = scanner.nextLine();
+                    if (EmployeeValidate.checkIdEmployee(id)) {
+                        break;
+                    }
+                } catch (EmployeeException e) {
+                    System.out.println("Input Wrong!!!");
+                }
+            } while (true);
             int index = employeeRepository.searchByIdEmployee(id);
             if (index == -1) {
                 throw new IdNotFoundException("Id doesnt exist!!!");
@@ -111,12 +195,32 @@ public class EmployeeService implements IEmployeeService {
                         // id,name,date,gender,identify,phoneNumber,email,level,position,salary
                         case 1:
                             System.out.println("New name");
-                            String newName = Validate.validateNameAndType();
+                            String newName = "";
+                            do {
+                                try {
+                                    newName = scanner.nextLine();
+                                    if (EmployeeValidate.checkNameEmployee(newName)) {
+                                        break;
+                                    }
+                                } catch (EmployeeException e) {
+                                    System.out.println("Input Wrong!!!");
+                                }
+                            } while (true);
                             employee.setName(newName);
                             break;
                         case 2:
                             System.out.println("New date");
-                            String newDate = Validate.validateDate();
+                            String newDate = "";
+                            do {
+                                try {
+                                    newDate = scanner.nextLine();
+                                    if (EmployeeValidate.checkDateEmployee(newDate)) {
+                                        break;
+                                    }
+                                } catch (EmployeeException e) {
+                                    System.out.println("Input Wrong!!!");
+                                }
+                            } while (true);
                             employee.setDate(newDate);
                             break;
                         case 3:
@@ -126,12 +230,32 @@ public class EmployeeService implements IEmployeeService {
                             break;
                         case 4:
                             System.out.println("New identify");
-                            String newIdentify = Validate.validateIdentifyNumber();
+                            String newIdentify = "";
+                            do {
+                                try {
+                                    newIdentify = scanner.nextLine();
+                                    if (EmployeeValidate.checkIdentifyEmployee(newIdentify)) {
+                                        break;
+                                    }
+                                } catch (EmployeeException e) {
+                                    System.out.println("Input Wrong!!!");
+                                }
+                            } while (true);
                             employee.setIdentifyNumber(newIdentify);
                             break;
                         case 5:
                             System.out.println("New phone number");
-                            String newPhone = Validate.validatePhoneNumber();
+                            String newPhone = "";
+                            do {
+                                try {
+                                    newPhone = scanner.nextLine();
+                                    if (EmployeeValidate.checkPhoneEmployee(newPhone)) {
+                                        break;
+                                    }
+                                } catch (EmployeeException e) {
+                                    System.out.println("Input Wrong!!!");
+                                }
+                            } while (true);
                             employee.setPhoneNumber(newPhone);
                             break;
                         case 6:
@@ -151,7 +275,17 @@ public class EmployeeService implements IEmployeeService {
                             break;
                         case 9:
                             System.out.println("New salary");
-                            int salary = Validate.validateSalary();
+                            int salary = 0;
+                            do {
+                                try {
+                                    salary = Integer.parseInt(scanner.nextLine());
+                                    if (EmployeeValidate.checkSalaryEmployee(salary)) {
+                                        break;
+                                    }
+                                } catch (EmployeeException e) {
+                                    System.out.println("Input Wrong!!!");
+                                }
+                            } while (true);
                             employee.setSalaryEmployee(salary);
                             break;
                         case 10:
@@ -167,7 +301,7 @@ public class EmployeeService implements IEmployeeService {
                 String select = scanner.nextLine().toLowerCase().trim();
                 if (select.equals("yes")) {
                     employeeRepository.editEmployee(index, employee);
-                }else {
+                } else {
                     System.out.println("Cancel!!!");
                 }
             }
@@ -181,10 +315,10 @@ public class EmployeeService implements IEmployeeService {
         System.out.println("Enter name you want to search");
         String name = scanner.nextLine();
         List<Employee> employeeList = employeeRepository.searchByNameEmployee(name);
-        if (employeeList.size() == 0){
+        if (employeeList.size() == 0) {
             System.out.println("Name doesnt exist!!!");
-        }else {
-            for (Employee employee : employeeList){
+        } else {
+            for (Employee employee : employeeList) {
                 System.out.println(employee);
             }
         }

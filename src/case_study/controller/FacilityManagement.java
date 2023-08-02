@@ -1,8 +1,11 @@
 package case_study.controller;
 
+import case_study.service.IFacilityService;
+import case_study.service.impl.FacilityService;
 import case_study.utils.ReadAndWrite;
 
 public class FacilityManagement {
+    private final IFacilityService facilityService = new FacilityService();
     public void selecyFacility(){
         boolean flag = true;
         do {
@@ -18,15 +21,19 @@ public class FacilityManagement {
             switch (select){
                 case 1:
                     System.out.println("Display list facility");
+                    facilityService.display();
                     break;
                 case 2:
                     System.out.println("Add new facility");
+                    facilityService.add();
                     break;
                 case 3:
                     System.out.println("Display list facility maintenance");
+                    facilityService.displayAllMaintenance();
                     break;
                 case 4:
-                    System.out.println("Delete facility ");
+                    System.out.println("Remove facility ");
+                    facilityService.remove();
                     break;
                 case 5:
                     System.out.println("Return main menu");

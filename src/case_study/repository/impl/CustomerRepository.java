@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerRepository implements ICustomerRepository {
-    private final String CUSTOMER_PATH_FILE = "D:\\CodeGym\\module_2_again\\src\\case_study\\furama_data\\customer.csv";
+    private final String CUSTOMER_PATH_FILE = "D:\\CodeGym\\module_2_again\\src\\case_study\\data\\customer.csv";
     @Override
     public List<Customer> displayCustomer() {
         List<String> stringList = ReadAndWrite.readFileBook(CUSTOMER_PATH_FILE);

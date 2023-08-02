@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeRepository implements IEmployeeRepository {
-    private final String EMPLOYEE_PATH_FILE = "D:\\CodeGym\\module_2_again\\src\\case_study\\furama_data\\employee.csv";
+    private final String EMPLOYEE_PATH_FILE = "D:\\CodeGym\\module_2_again\\src\\case_study\\data\\employee.csv";
     @Override
     public List<Employee> displayListEmployee() {
         List<String> stringList = ReadAndWrite.readFileBook(EMPLOYEE_PATH_FILE);
